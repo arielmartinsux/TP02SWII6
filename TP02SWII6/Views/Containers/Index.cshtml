@@ -1,0 +1,38 @@
+﻿@model IEnumerable<TP02SWII6.Model.Container>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-controller="Containers" asp-action="Create">Create New</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Número</th>
+            <th>Tipo</th>
+            <th>Tamanho</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var container in Model)
+        {
+            <tr>
+                <td>@container.Numero</td>
+                <td>@container.Tipo</td>
+                <td>@container.Tamanho</td>
+                <td>
+                    <a asp-controller="Containers" asp-action="Edit" asp-route-id="@container.ID" class="btn btn-primary">Editar</a>
+                    <a asp-controller="Containers" asp-action="Delete" asp-route-id="@container.ID" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

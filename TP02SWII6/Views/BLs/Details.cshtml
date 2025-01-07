@@ -1,0 +1,36 @@
+﻿@model TP02SWII6.Model.BL
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<h2>Detalhes do BL</h2>
+<p><strong>Número:</strong> @Model.Numero</p>
+<p><strong>Consignee:</strong> @Model.Consignee</p>
+<p><strong>Navio:</strong> @Model.Navio</p>
+
+<h3>Containers</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Número</th>
+            <th>Tipo</th>
+            <th>Tamanho</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var container in Model.Containers)
+        {
+            <tr>
+                <td>@container.Numero</td>
+                <td>@container.Tipo</td>
+                <td>@container.Tamanho</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
